@@ -121,7 +121,7 @@ class App extends Component {
           <h2 className="shelf-header">Read</h2>
           {this.state.shelf ? <Shelf shelf={this.state.shelf.read} /> : <ShelfSkeleton />}
         </section>
-        <footer>Dunnkers ♥ {year}</footer>
+        <footer><a href='https://dunnkers.com/'>dunnkers</a> ♥ {year}</footer>
       </div>
     );
   }

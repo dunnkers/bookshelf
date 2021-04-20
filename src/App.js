@@ -111,9 +111,11 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           Dunnkers' Digital Reading Shelf &nbsp;
-          <ShelfIcon 
-            loading={this.state.shelf ? false : true} 
-            onClick={() => this.update()} />
+          <div title="Update book list">
+            <ShelfIcon 
+              loading={this.state.shelf ? false : true} 
+              onClick={() => this.update()} />
+          </div>
         </header>
         <section>
           <h2 className="shelf-header">Currently reading</h2>

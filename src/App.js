@@ -5,6 +5,8 @@ import Skeleton from 'react-loading-skeleton';
 import './App.css';
 import ShelfIcon from './ShelfIcon';
 
+const API_URL = "https://europe-west1-dunnkers-bookshelf.cloudfunctions.net/goodreads-api";
+
 class Book extends Component {
   render() {
     const { title, link, image_url, authors } = this.props.book;
@@ -90,7 +92,7 @@ class App extends Component {
   }
   
   componentDidMount() {
-    this.grab('https://goodreads-shelves.herokuapp.com/');
+    this.grab(`${API_URL}/?bust=false`);
   }
 
   grab(url) {
@@ -101,7 +103,7 @@ class App extends Component {
 
   update() {
     this.setState({ shelf: false });
-    this.grab('https://goodreads-shelves.herokuapp.com/force-update');
+    this.grab(`${API_URL}/?bust=true`);
   }
 
   render() {

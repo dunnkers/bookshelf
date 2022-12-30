@@ -1,5 +1,5 @@
 # bookshelf
-Hi! This is my bookshelf. It uses a [backend](https://github.com/dunnkers/goodreads-api) that pulls publicly available information from [GoodReads](https://goodreads.com/).
+Hi! This is my bookshelf. It uses a [backend](https://github.com/dunnkers/goodreads-api) that pulls publicly available information from [Goodreads](https://goodreads.com/).
 
 ![bookshelf example](https://user-images.githubusercontent.com/744430/80863557-93ff3c80-8c7d-11ea-9453-0c832e96842d.png)
 

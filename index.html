@@ -1,1 +1,950 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="shortcut icon" href="/bookshelf/favicon.ico"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000"><link rel="manifest" href="/bookshelf/manifest.json"><title>Reading Shelf</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-40680192-2"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-40680192-2")</script><link href="/bookshelf/static/css/main.73a9fdb6.chunk.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div><script>!function(e){function r(r){for(var n,l,f=r[0],i=r[1],a=r[2],c=0,s=[];c<f.length;c++)l=f[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,f=1;f<t.length;f++){var i=t[f];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/bookshelf/";var f=this.webpackJsonpbookshelf=this.webpackJsonpbookshelf||[],i=f.push.bind(f);f.push=r,f=f.slice();for(var a=0;a<f.length;a++)r(f[a]);var p=i;t()}([])</script><script src="/bookshelf/static/js/2.26558db2.chunk.js"></script><script src="/bookshelf/static/js/main.5f6135ea.chunk.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="/manifest.json">
+
+    <title>Reading Shelf</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40680192-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-40680192-2');
+    </script>
+
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/App.css" />
+    <link rel="stylesheet" href="/css/ShelfIcon.css" />
+  </head>
+  <body>
+    <div id="root">
+      <div class="App">
+        <header class="App-header">
+          Dunnkers' Digital Reading Shelf &nbsp;
+
+
+          <svg 
+          class="book-shelf"
+          xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="14 32 50 20" height="44" width="34"
+          title="Update books"
+          >
+            <path fill="none" d="M37.612 92.805L4.487 73.71c-2.75-1.587-4.45-4.52-4.45-7.687L.008 27.877c-.003-3.154 1.676-6.063 4.405-7.634L37.558 1.167c2.73-1.57 6.096-1.566 8.835.013l33.124 19.096c2.75 1.586 4.45 4.518 4.45 7.686l.028 38.146c.002 3.154-1.677 6.063-4.406 7.634L46.445 92.818c-2.73 1.57-6.096 1.566-8.834-.013z"/>
+            <g className="book-shelf__book book-shelf__book--one" fillRule="evenodd">
+              <path fill="#5199fc" d="M31 29h4c1.105 0 2 .895 2 2v29c0 1.105-.895 2-2 2h-4c-1.105 0-2-.895-2-2V31c0-1.105.895-2 2-2z"/>
+              <path fill="#afd7fb" d="M34 36h-2c-.552 0-1-.448-1-1s.448-1 1-1h2c.552 0 1 .448 1 1s-.448 1-1 1zm-2 1h2c.552 0 1 .448 1 1s-.448 1-1 1h-2c-.552 0-1-.448-1-1s.448-1 1-1z"/>
+            </g>
+            <g className="book-shelf__book book-shelf__book--two" fillRule="evenodd">
+              <path fill="#ff9868" d="M39 34h6c1.105 0 2 .895 2 2v24c0 1.105-.895 2-2 2h-6c-1.105 0-2-.895-2-2V36c0-1.105.895-2 2-2z"/>
+              <path fill="#d06061" d="M42 38c1.105 0 2 .895 2 2s-.895 2-2 2-2-.895-2-2 .895-2 2-2z"/>
+            </g>
+            <g className="book-shelf__book book-shelf__book--three" fillRule="evenodd">
+              <path fill="#ff5068" d="M49 32h2c1.105 0 2 .86 2 1.92v25.906c0 1.06-.895 1.92-2 1.92h-2c-1.105 0-2-.86-2-1.92V33.92c0-1.06.895-1.92 2-1.92z"/>
+              <path fill="#d93368" d="M50 35c.552 0 1 .448 1 1v2c0 .552-.448 1-1 1s-1-.448-1-1v-2c0-.552.448-1 1-1z"/>
+            </g>
+            <g fillRule="evenodd">
+              <path className="book-shelf__shelf" fill="#ae8280" d="M21 60h40c1.105 0 2 .895 2 2s-.895 2-2 2H21c-1.105 0-2-.895-2-2s.895-2 2-2z"/>
+              <path fill="#855f6d" d="M51.5 67c-.828 0-1.5-.672-1.5-1.5V64h3v1.5c0 .828-.672 1.5-1.5 1.5zm-21 0c-.828 0-1.5-.672-1.5-1.5V64h3v1.5c0 .828-.672 1.5-1.5 1.5z"/>
+            </g>
+          </svg>
+        </header>
+        <section>
+          <h2 class="shelf-header">Currently reading</h2>
+
+          <div class="shelf">
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1662051213l/62214146._SY475_.jpg
+                              alt="The Making of the Modern Middle East: A Personal History Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/62214146-the-making-of-the-modern-middle-east>The Making of the Modern Middle East: A Personal History</a>
+                            </div>
+                            <div class="author">
+                              Jeremy Bowen
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1626718328l/57933306.jpg
+                              alt="Stolen Focus: Why You Can&#x27;t Pay Attention- and How to Think Deeply Again Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/57933306-stolen-focus>Stolen Focus: Why You Can&#x27;t Pay Attention- and How to Think Deeply Again</a>
+                            </div>
+                            <div class="author">
+                              Johann Hari
+                            </div>
+                          </div>
+              
+          </div>
+          <h2 class="shelf-header">Read</h2>
+          <div class="shelf">
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1559986152l/386162.jpg
+                              alt="The Hitchhiker&#x27;s Guide to the Galaxy (The Hitchhiker&#x27;s Guide to the Galaxy, #1) Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/386162.The_Hitchhiker_s_Guide_to_the_Galaxy>The Hitchhiker&#x27;s Guide to the Galaxy (The Hitchhiker&#x27;s Guide to the Galaxy, #1)</a>
+                            </div>
+                            <div class="author">
+                              Douglas Adams
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1630118607l/49785708._SY475_.jpg
+                              alt="Four Thousand Weeks: Time and How to Use It Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/49785708-four-thousand-weeks>Four Thousand Weeks: Time and How to Use It</a>
+                            </div>
+                            <div class="author">
+                              Oliver Burkeman
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1421801451l/11527504.jpg
+                              alt="A Little History of Philosophy Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/25230465-a-little-history-of-philosophy>A Little History of Philosophy</a>
+                            </div>
+                            <div class="author">
+                              Nigel Warburton
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1628533378l/58536046.jpg
+                              alt="Why Has Nobody Told Me This Before? Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/60872124-why-has-nobody-told-me-this-before>Why Has Nobody Told Me This Before?</a>
+                            </div>
+                            <div class="author">
+                              Julie      Smith
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1549075101l/43810158._SY475_.jpg
+                              alt="Moonwalking with Einstein: The Art and Science of Remembering Everything Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/43810158-moonwalking-with-einstein>Moonwalking with Einstein: The Art and Science of Remembering Everything</a>
+                            </div>
+                            <div class="author">
+                              Joshua Foer
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1415585591l/94053.jpg
+                              alt="River Town: Two Years on the Yangtze Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/9725132-river-town>River Town: Two Years on the Yangtze</a>
+                            </div>
+                            <div class="author">
+                              Peter Hessler
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1608491606l/11878168._SX318_.jpg
+                              alt="Anything You Want Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/11878168-anything-you-want>Anything You Want</a>
+                            </div>
+                            <div class="author">
+                              Derek Sivers
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1572929027l/48708583._SY475_.jpg
+                              alt="How We Learn: The New Science of Education and the Brain Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/48708583-how-we-learn>How We Learn: The New Science of Education and the Brain</a>
+                            </div>
+                            <div class="author">
+                              Stanislas Dehaene
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1589926186l/9700791._SY475_.jpg
+                              alt="Man&#x27;s Search for Meaning Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/9700791-man-s-search-for-meaning>Man&#x27;s Search for Meaning</a>
+                            </div>
+                            <div class="author">
+                              Viktor E. Frankl
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1532714506l/40961427._SX318_.jpg
+                              alt="1984 Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/40961427-1984>1984</a>
+                            </div>
+                            <div class="author">
+                              George Orwell
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1572575720l/48654973._SY475_.jpg
+                              alt="Has China Won?: The Chinese Challenge to American Primacy Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/48654973-has-china-won>Has China Won?: The Chinese Challenge to American Primacy</a>
+                            </div>
+                            <div class="author">
+                              Kishore Mahbubani
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1457263853l/29428533._SX318_.jpg
+                              alt="Ego Is the Enemy Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/29428533-ego-is-the-enemy>Ego Is the Enemy</a>
+                            </div>
+                            <div class="author">
+                              Ryan Holiday
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1532479315l/40940205._SY475_.jpg
+                              alt="Tribe: On Homecoming and Belonging Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/40940205-tribe>Tribe: On Homecoming and Belonging</a>
+                            </div>
+                            <div class="author">
+                              Sebastian Junger
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1567606505l/39669805._SY475_.jpg
+                              alt="Enlightenment Now: The Case for Reason, Science, Humanism, and Progress Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/39669805-enlightenment-now>Enlightenment Now: The Case for Reason, Science, Humanism, and Progress</a>
+                            </div>
+                            <div class="author">
+                              Steven Pinker
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1623093769l/56155261._SY475_.jpg
+                              alt="Exercised: The Science of Physical Activity, Rest and Health Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/56155261-exercised>Exercised: The Science of Physical Activity, Rest and Health</a>
+                            </div>
+                            <div class="author">
+                              Daniel E. Lieberman
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1617733369l/56920969.jpg
+                              alt="Quantum Computing: The transformative technology of the Qubit Revolution Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/56920969-quantum-computing>Quantum Computing: The transformative technology of the Qubit Revolution</a>
+                            </div>
+                            <div class="author">
+                              Brian Clegg
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1607753431l/56256176._SY475_.jpg
+                              alt="Livewired: The Inside Story of the Ever-Changing Brain Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/56256176-livewired>Livewired: The Inside Story of the Ever-Changing Brain</a>
+                            </div>
+                            <div class="author">
+                              David Eagleman
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445791874l/25614523.jpg
+                              alt="Originals: How Non-Conformists Move the World Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/25614523-originals>Originals: How Non-Conformists Move the World</a>
+                            </div>
+                            <div class="author">
+                              Adam M. Grant
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1391440316l/18668059.jpg
+                              alt="The Obstacle Is the Way: The Timeless Art of Turning Trials into Triumph Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/18668059-the-obstacle-is-the-way>The Obstacle Is the Way: The Timeless Art of Turning Trials into Triumph</a>
+                            </div>
+                            <div class="author">
+                              Ryan Holiday
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328550349l/17364.jpg
+                              alt="Surely You&#x27;re Joking, Mr. Feynman! Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/17364.Surely_You_re_Joking_Mr_Feynman_>Surely You&#x27;re Joking, Mr. Feynman!</a>
+                            </div>
+                            <div class="author">
+                              Richard P. Feynman
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1456091964l/28186015.jpg
+                              alt="Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/28186015-weapons-of-math-destruction>Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy</a>
+                            </div>
+                            <div class="author">
+                              Cathy O&#x27;Neil
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1608723131l/53916142._SY475_.jpg
+                              alt="A Life on Our Planet: My Witness Statement and a Vision for the Future Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/53916142-a-life-on-our-planet>A Life on Our Planet: My Witness Statement and a Vision for the Future</a>
+                            </div>
+                            <div class="author">
+                              David Attenborough
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1577478589l/49994260._SY475_.jpg
+                              alt="Limitless: Upgrade Your Brain, Learn Anything Faster, and Unlock Your Exceptional Life Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/49994260-limitless>Limitless: Upgrade Your Brain, Learn Anything Faster, and Unlock Your Exceptional Life</a>
+                            </div>
+                            <div class="author">
+                              Jim Kwik
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1536184191l/41721428._SY475_.jpg
+                              alt="Can&#x27;t Hurt Me: Master Your Mind and Defy the Odds Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/41721428-can-t-hurt-me>Can&#x27;t Hurt Me: Master Your Mind and Defy the Odds</a>
+                            </div>
+                            <div class="author">
+                              David Goggins
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1351800422l/16122664.jpg
+                              alt="Hersenschimmen Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/16122664-hersenschimmen>Hersenschimmen</a>
+                            </div>
+                            <div class="author">
+                              J. Bernlef
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1463949436l/29807115.jpg
+                              alt="The Selfish Gene Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/29807115-the-selfish-gene>The Selfish Gene</a>
+                            </div>
+                            <div class="author">
+                              Richard Dawkins
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1575553460l/49105212._SY475_.jpg
+                              alt="Socrates op sneakers Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/49105212-socrates-op-sneakers>Socrates op sneakers</a>
+                            </div>
+                            <div class="author">
+                              Elke Wiss
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1421618636l/30659.jpg
+                              alt="Meditations Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/30659.Meditations>Meditations</a>
+                            </div>
+                            <div class="author">
+                              Marcus Aurelius
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1566883842l/43582733.jpg
+                              alt="Stillness Is the Key Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/43582733-stillness-is-the-key>Stillness Is the Key</a>
+                            </div>
+                            <div class="author">
+                              Ryan Holiday
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1593619522l/52744989._SY475_.jpg
+                              alt="The Second Mountain: The Quest for a Moral Life Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/52744989-the-second-mountain>The Second Mountain: The Quest for a Moral Life</a>
+                            </div>
+                            <div class="author">
+                              David  Brooks
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1436292289l/25663961._SY475_.jpg
+                              alt="How Not to Die: Discover the Foods Scientifically Proven to Prevent and Reverse Disease Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/25663961-how-not-to-die>How Not to Die: Discover the Foods Scientifically Proven to Prevent and Reverse Disease</a>
+                            </div>
+                            <div class="author">
+                              Michael Greger
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347883790l/7312071.jpg
+                              alt="The Checklist Manifesto: How To Get Things Right Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/7312071-the-checklist-manifesto>The Checklist Manifesto: How To Get Things Right</a>
+                            </div>
+                            <div class="author">
+                              Atul Gawande
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1317793965l/11468377.jpg
+                              alt="Thinking, Fast and Slow Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/11468377-thinking-fast-and-slow>Thinking, Fast and Slow</a>
+                            </div>
+                            <div class="author">
+                              Daniel Kahneman
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1549223671l/43824918.jpg
+                              alt="Je bent wat je doet Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/43824918-je-bent-wat-je-doet>Je bent wat je doet</a>
+                            </div>
+                            <div class="author">
+                              Roos Vonk
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1492677644l/25899336.jpg
+                              alt="When Breath Becomes Air Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/25899336-when-breath-becomes-air>When Breath Becomes Air</a>
+                            </div>
+                            <div class="author">
+                              Paul Kalanithi
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1522047003l/37857021._SY475_.jpg
+                              alt="Life 3.0: Being Human in the Age of Artificial Intelligence Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/37857021-life-3-0>Life 3.0: Being Human in the Age of Artificial Intelligence</a>
+                            </div>
+                            <div class="author">
+                              Max  Tegmark
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1558569920l/45995328._SY475_.jpg
+                              alt="De meeste mensen deugen: een nieuwe geschiedenis van de mens Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/45995328-de-meeste-mensen-deugen>De meeste mensen deugen: een nieuwe geschiedenis van de mens</a>
+                            </div>
+                            <div class="author">
+                              Rutger Bregman
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1530147517l/40659158._SY475_.jpg
+                              alt="Hyperfocus: How to Work Less to Achieve More Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/40659158-hyperfocus>Hyperfocus: How to Work Less to Achieve More</a>
+                            </div>
+                            <div class="author">
+                              Chris   Bailey
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1436737104l/10865206._SY475_.jpg
+                              alt="The Willpower Instinct: How Self-Control Works, Why It Matters, and What You Can Do to Get More of It Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/10865206-the-willpower-instinct>The Willpower Instinct: How Self-Control Works, Why It Matters, and What You Can Do to Get More of It</a>
+                            </div>
+                            <div class="author">
+                              Kelly McGonigal
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1512705866l/30257963.jpg
+                              alt="12 Rules for Life: An Antidote to Chaos Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/30257963-12-rules-for-life>12 Rules for Life: An Antidote to Chaos</a>
+                            </div>
+                            <div class="author">
+                              Jordan B. Peterson
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1444694679l/25273650.jpg
+                              alt="The Culture Map: Decoding How People Think, Lead, and Get Things Done Across Cultures Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/25273650-the-culture-map>The Culture Map: Decoding How People Think, Lead, and Get Things Done Across Cultures</a>
+                            </div>
+                            <div class="author">
+                              Erin Meyer
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327600810l/11233289.jpg
+                              alt="Into Thin Air: A Personal Account of the Everest Disaster Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/11233289-into-thin-air>Into Thin Air: A Personal Account of the Everest Disaster</a>
+                            </div>
+                            <div class="author">
+                              Jon Krakauer
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1578318088l/44160076._SX318_.jpg
+                              alt="Digital Minimalism: On Living Better with Less Technology Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/44160076-digital-minimalism>Digital Minimalism: On Living Better with Less Technology</a>
+                            </div>
+                            <div class="author">
+                              Cal Newport
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1564577305l/38820046._SY475_.jpg
+                              alt="21 Lessons for the 21st Century Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/38820046-21-lessons-for-the-21st-century>21 Lessons for the 21st Century</a>
+                            </div>
+                            <div class="author">
+                              Yuval Noah Harari
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1344266315l/3228917.jpg
+                              alt="Outliers: The Story of Success Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/3228917-outliers>Outliers: The Story of Success</a>
+                            </div>
+                            <div class="author">
+                              Malcolm Gladwell
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1337205071l/9420697.jpg
+                              alt="The Compound Effect: Jumpstart Your Income, Your Life, Your Success Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/9420697-the-compound-effect>The Compound Effect: Jumpstart Your Income, Your Life, Your Success</a>
+                            </div>
+                            <div class="author">
+                              Darren Hardy
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1465761302l/28257707.jpg
+                              alt="The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/28257707-the-subtle-art-of-not-giving-a-f-ck>The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life</a>
+                            </div>
+                            <div class="author">
+                              Mark Manson
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1515362928l/37850908._SY475_.jpg
+                              alt="Factfulness: Ten Reasons We&#x27;re Wrong About The World - And Why Things Are Better Than You Think Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/37850908-factfulness>Factfulness: Ten Reasons We&#x27;re Wrong About The World - And Why Things Are Better Than You Think</a>
+                            </div>
+                            <div class="author">
+                              Hans Rosling
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348972089l/9278897.jpg
+                              alt="The 4-Hour Work Week: Escape the 9-5, Live Anywhere and Join the New Rich Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/9278897-the-4-hour-work-week>The 4-Hour Work Week: Escape the 9-5, Live Anywhere and Join the New Rich</a>
+                            </div>
+                            <div class="author">
+                              Timothy Ferriss
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1568819766l/25874847._SY475_.jpg
+                              alt="Prisoners of Geography: Ten Maps That Tell You Everything You Need to Know About Global Politics Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/25874847-prisoners-of-geography>Prisoners of Geography: Ten Maps That Tell You Everything You Need to Know About Global Politics</a>
+                            </div>
+                            <div class="author">
+                              Tim  Marshall
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1541816726l/41551710._SY475_.jpg
+                              alt="Brief Answers to the Big Questions Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/41551710-brief-answers-to-the-big-questions>Brief Answers to the Big Questions</a>
+                            </div>
+                            <div class="author">
+                              Stephen Hawking
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1575905585l/37826561._SY475_.jpg
+                              alt="Educated Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/37826561-educated>Educated</a>
+                            </div>
+                            <div class="author">
+                              Tara Westover
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1505329976l/36234689._SY475_.jpg
+                              alt="Why We Sleep: The New Science of Sleep and Dreams Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/36234689-why-we-sleep>Why We Sleep: The New Science of Sleep and Dreams</a>
+                            </div>
+                            <div class="author">
+                              Matthew Walker
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1504053105l/36147818._SY475_.jpg
+                              alt="Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/36147818-elon-musk>Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future</a>
+                            </div>
+                            <div class="author">
+                              Ashlee Vance
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1392112969l/20775702.jpg
+                              alt="The Martian Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/20775702-the-martian>The Martian</a>
+                            </div>
+                            <div class="author">
+                              Andy Weir
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1498271736l/35506021._SY475_.jpg
+                              alt="All These Worlds (Bobiverse, #3) Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/35506021-all-these-worlds>All These Worlds (Bobiverse, #3)</a>
+                            </div>
+                            <div class="author">
+                              Dennis E. Taylor
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1524511979l/36203303._SY475_.jpg
+                              alt="Money Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/36203303-money>Money</a>
+                            </div>
+                            <div class="author">
+                              Yuval Noah Harari
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1451409702l/28383248._SY475_.jpg
+                              alt="Deep Work: Rules for Focused Success in a Distracted World Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/28383248-deep-work>Deep Work: Rules for Focused Success in a Distracted World</a>
+                            </div>
+                            <div class="author">
+                              Cal Newport
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1595674533l/23692271._SY475_.jpg
+                              alt="Sapiens: A Brief History of Humankind Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/23692271-sapiens>Sapiens: A Brief History of Humankind</a>
+                            </div>
+                            <div class="author">
+                              Yuval Noah Harari
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1492533321l/34878094._SY475_.jpg
+                              alt="For We Are Many (Bobiverse, #2) Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/34878094-for-we-are-many>For We Are Many (Bobiverse, #2)</a>
+                            </div>
+                            <div class="author">
+                              Dennis E. Taylor
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1493518741l/35014337._SY475_.jpg
+                              alt="We Are Legion (We Are Bob) (Bobiverse, #1) Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/35014337-we-are-legion-we-are-bob>We Are Legion (We Are Bob) (Bobiverse, #1)</a>
+                            </div>
+                            <div class="author">
+                              Dennis E. Taylor
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1468760805l/31138556._SY475_.jpg
+                              alt="Homo Deus: A History of Tomorrow Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/31138556-homo-deus>Homo Deus: A History of Tomorrow</a>
+                            </div>
+                            <div class="author">
+                              Yuval Noah Harari
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1235479944l/1797756.jpg
+                              alt="Een goede man slaat soms zijn vrouw Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/1797756.Een_goede_man_slaat_soms_zijn_vrouw>Een goede man slaat soms zijn vrouw</a>
+                            </div>
+                            <div class="author">
+                              Joris Luyendijk
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1376419833l/18302455.jpg
+                              alt="The Circle Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/18302455-the-circle>The Circle</a>
+                            </div>
+                            <div class="author">
+                              Dave Eggers
+                            </div>
+                          </div>
+              
+                          <div class="book">
+                            <img
+                              src=https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1213828583l/3477772.jpg
+                              alt="Het zijn net mensen: Beelden uit het Midden-Oosten Cover"
+                            />
+                            <div class="title">
+                              <a href=https://www.goodreads.com/book/show/3477772-het-zijn-net-mensen>Het zijn net mensen: Beelden uit het Midden-Oosten</a>
+                            </div>
+                            <div class="author">
+                              Joris Luyendijk
+                            </div>
+                          </div>
+              
+          </div>
+        </section>
+        <footer><a href='https://dunnkers.com/'>dunnkers</a> ♥ 
+          <div 
+            style="display: inline;"
+            title="Website rendered statically on Fri Dec 30 2022">
+            2022
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

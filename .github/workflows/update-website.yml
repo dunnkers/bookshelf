@@ -1,0 +1,37 @@
+name: Deploy Bookshelf website
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+    
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout GitHub action
+      uses: actions/checkout@v3
+
+    - name: Use Node.js 16
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+
+    - name: Install dependencies
+      shell: bash
+      run: |
+        yarn
+
+    - name: Build Bookshelf website
+      shell: bash
+      run: |
+        yarn predeploy
+
+    - name: Deploy with gh-pages
+      run: |
+        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -32,7 +32,7 @@
 }
 
 .book-shelf:hover {
-  cursor: pointer;
+  /* cursor: pointer; */
   opacity: 1.0;
   transition: opacity 0.2s ease-in;
 }

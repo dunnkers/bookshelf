@@ -5,15 +5,39 @@
 .App-header {
   color: black;
   padding: 12px 35px 0px 35px;
-  text-align: center;
+  text-align: left;
 }
 
 @media (min-width: 576px) {
   .App-header {
-    text-align: right;
+    text-align: center;
   }
 }
 
+.App-header .home-link {
+  color: #222;
+  text-decoration: none;
+}
+
+/* App icons */
+.App-icons {
+  text-align: right;
+  float: right;
+  margin-top: 23px;
+}
+
+.App-icons .GitHub-icon {
+  width: 22px;
+  margin-right: 7px;
+  margin-left: 1px;
+  opacity: 0.75;
+}
+
+.App-icons .GitHub-icon:hover {
+  opacity: 1.0;
+}
+
+/* Footer */
 footer {
   color: #6c757d;
   text-align: center;
@@ -24,7 +48,13 @@ footer {
 /* SHELF */
 .shelf-header {
   /* top right bottom left */
-  margin: 20px 0px 20px 10vh;
+  margin: 20px 0px 20px 3vh;
+}
+
+@media (min-width: 576px) {
+  .shelf-header {
+    margin: 20px 0px 20px 10vh;
+  }
 }
 
 .shelf {

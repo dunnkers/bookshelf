@@ -28,6 +28,7 @@ fetch(`${API_URL}/?bust=false`)
         const read = sortBooks(shelf.read.books)
         const today = new Date();
         const todayString = today.toDateString();
+        const todayTime = today.toTimeString();
         const year = today.getFullYear();
 
         // Compile said template
@@ -37,7 +38,8 @@ fetch(`${API_URL}/?bust=false`)
             year,
             current,
             read,
-            todayString
+            todayString,
+            todayTime
         });
 
         // Write HTML file

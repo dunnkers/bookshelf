@@ -27,11 +27,9 @@ jobs:
     - name: Build Bookshelf website
       shell: bash
       run: |
-        export API_URL="${API_URL}"
-        export PUBLIC_URL="${PUBLIC_URL}"
         yarn build
       env:
-        API_URL: ${{ secrets.API_URL }}
+        API_URL: "https://europe-west1-dunnkers-bookshelf.cloudfunctions.net/goodreads-api"
         PUBLIC_URL: "https://dunnkers.com/bookshelf"
 
     - name: Deploy with gh-pages

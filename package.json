@@ -11,7 +11,8 @@
   },
   "scripts": {
     "serve": "npx -y http-server build",
-    "build": "rm -rf build && cp -R public build && node compile-website.mjs",
+    "prebuild": "rm -rf build && cp -R public build",
+    "build": "node compile-website.mjs",
     "deploy": "gh-pages -d build"
   },
   "homepage": "https://dunnkers.com/bookshelf",

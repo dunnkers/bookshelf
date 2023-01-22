@@ -27,6 +27,8 @@ jobs:
     - name: Build Bookshelf website
       shell: bash
       run: |
+        export API_URL="${API_URL}"
+        export PUBLIC_URL="${PUBLIC_URL}"
         yarn build
       env:
         API_URL: ${{ secrets.API_URL }}

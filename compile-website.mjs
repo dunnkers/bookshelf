@@ -6,7 +6,7 @@ import { readFileSync, writeFileSync } from 'fs';
 var template = readFileSync('src/index.hbs', 'utf8');
 
 
-const API_URL = "https://europe-west1-dunnkers-bookshelf.cloudfunctions.net/goodreads-api";
+const API_URL = process.env.API_URL;
 
 function sortBooks(books) {
     const dateCmp = (a, b) => (a < b) - (a > b); // stackoverflow q492994

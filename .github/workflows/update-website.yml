@@ -27,7 +27,10 @@ jobs:
     - name: Build Bookshelf website
       shell: bash
       run: |
-        yarn predeploy
+        yarn build
+      env:
+        API_URL: ${{ secrets.API_URL }}
+        PUBLIC_URL: "https://dunnkers.com/bookshelf"
 
     - name: Deploy with gh-pages
       run: |

@@ -1,25 +1,29 @@
 <!-- bookshelf-bookshelf.hbs -->
-<h2 class="bookshelf-shelf-header">Currently reading</h2>
-<div class="bookshelf-shelf">
-  {{#each current}}
-    <p class="bookshelf-book">
-        <figure>
-            <img src="{{image_url}}" alt="{{title}} Cover" />
-            <figcaption><a href="{{link}}" target="_blank" rel="noopener">{{title}}</a></figcaption>
-            <figcaption class="author">{{author}}</figcaption>
-        </figure>
-      <p class="title"><a href="{{link}}" target="_blank" rel="noopener">{{title}}</a></p>
-      <p class="author">{{author}}</p>
-    </p>
-  {{/each}}
-</div>
-<h2 class="bookshelf-shelf-header">Read</h2>
-<div class="bookshelf-shelf">
-  {{#each read}}
-    <div class="bookshelf-book">
-      <img src="{{image_url}}" alt="{{title}} Cover" />
-      <div class="title"><a href="{{link}}" target="_blank" rel="noopener">{{title}}</a></div>
-      <div class="author">{{author}}</div>
+<div class="kg-width-wide">
+    <h2 class="bookshelf-shelf-header">Currently reading</h2>
+    <div class="bookshelf-shelf">
+    {{#each current}}
+        <p class="bookshelf-book">
+            <figure>
+                <img src="{{image_url}}" alt="{{title}} Cover" />
+                <figcaption><a href="{{link}}" target="_blank" rel="noopener">{{title}}</a></figcaption>
+                <figcaption class="author">{{author}}</figcaption>
+            </figure>
+        </p>
+    {{/each}}
     </div>
-  {{/each}}
+    <h2 class="bookshelf-shelf-header">Read</h2>
+    <div class="bookshelf-shelf">
+    {{#each read}}
+        <div class="bookshelf-book">
+            <figure>
+
+                <img src="{{image_url}}" alt="{{title}} Cover" />
+
+                <figcaption class="title"><a href="{{link}}" target="_blank" rel="noopener">{{title}}</a></figcaption>
+                <figcaption class="author">{{author}}</figcaption>
+            </figure>
+        </div>
+    {{/each}}
+    </div>
 </div>

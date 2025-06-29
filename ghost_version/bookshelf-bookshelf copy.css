@@ -1,0 +1,151 @@
+/* bookshelf-bookshelf.css - targets Ghost's frontend classes for bookshelf grid layout */
+
+body .bookshelf-root {
+  background-color: white;
+  color: #222;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Remove grid from Ghost's main content container to avoid layout issues */
+/* .single-content.gh-content.kg-canvas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-gap: 32px;
+  padding: 40px 0;
+} */
+
+.bookshelf-header {
+  color: black;
+  padding: 12px 35px 0px 35px;
+  text-align: left;
+}
+
+.bookshelf-shelf-header {
+  margin: 20px 0px 20px 20px;
+}
+
+.bookshelf-shelf {
+  padding: 40px;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-auto-rows: 400px;
+  justify-items: center;
+}
+
+/* Make all direct children of bookshelf-shelf grid items, regardless of tag */
+.bookshelf-shelf > * {
+  max-width: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove unwanted margin from p/section wrappers if present */
+.bookshelf-shelf > p,
+.bookshelf-shelf > section {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: contents;
+}
+
+.bookshelf-book img {
+  max-width: 100%;
+  max-height: 220px;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.12), 0 6px 20px 0 rgba(0,0,0,0.10);
+}
+
+.bookshelf-book .title {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.bookshelf-book .title a {
+  color: #222;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.bookshelf-book .title a:hover,
+.bookshelf-footer a:hover {
+  text-decoration: underline;
+}
+
+.bookshelf-book .author {
+  display: block;
+  font-size: 0.95em;
+  color: #888;
+  margin-top: 2px;
+  text-align: center;
+}
+
+/* Bookshelf grid: only grid the book figures, not headings or unrelated paragraphs */
+.single-content.gh-content.kg-canvas {
+  display: block;
+}
+
+.single-content.gh-content.kg-canvas .kg-card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 30px;
+  justify-items: center;
+}
+
+/* Fallback: grid all book figures directly if no .kg-card-row wrapper */
+.single-content.gh-content.kg-canvas > .kg-card.kg-image-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 150px;
+  margin: 0 auto 24px auto;
+  box-sizing: border-box;
+}
+
+/* Book info in <p> after figure */
+.single-content.gh-content.kg-canvas > .kg-card.kg-image-card + p {
+  text-align: center;
+  margin: 8px 0 24px 0;
+  max-width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #444;
+  font-size: 1em;
+}
+
+/* Hide empty <p> tags */
+.single-content.gh-content.kg-canvas > p:empty {
+  display: none;
+}
+
+/* Remove grid/box from headings and unrelated paragraphs */
+.single-content.gh-content.kg-canvas > h2,
+.single-content.gh-content.kg-canvas > p:not(:empty):not(:has(a)) {
+  max-width: 100%;
+  margin: 24px 0 8px 0;
+  text-align: left;
+  display: block;
+}
+
+@media (min-width: 576px) {
+  .bookshelf-header { text-align: center; }
+  .bookshelf-shelf-header { margin: 20px 0px 20px 40px; }
+  .bookshelf-shelf { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .bookshelf-shelf {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+    padding: 20px 0;
+  }
+}
+
+/* --- End Bookshelf CSS --- */

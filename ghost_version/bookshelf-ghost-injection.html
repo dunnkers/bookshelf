@@ -1,0 +1,112 @@
+<!-- Bookshelf Widget for Ghost Blog Code Injection -->
+<style>
+/* --- Begin Bookshelf CSS --- */
+body .bookshelf-root {
+  background-color: white;
+  color: #222;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+.bookshelf-header {
+  color: black;
+  padding: 12px 35px 0px 35px;
+  text-align: left;
+}
+.bookshelf-shelf-header {
+  margin: 20px 0px 20px 20px;
+}
+.bookshelf-shelf {
+  padding: 40px;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-auto-rows: 400px;
+}
+@media (min-width: 576px) {
+  .bookshelf-header { text-align: center; }
+  .bookshelf-shelf-header { margin: 20px 0px 20px 40px; }
+  .bookshelf-shelf { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+}
+.bookshelf-book {
+  max-width: 150px;
+  justify-self: center;
+}
+.bookshelf-book img {
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.bookshelf-book .title {
+  margin-top: 15px;
+  font-weight: bold;
+}
+.bookshelf-book .title a:hover,
+.bookshelf-footer a:hover {
+  text-decoration: underline;
+}
+/* --- End Bookshelf CSS --- */
+</style>
+
+
+<script>
+(function() {
+  const API_URL = "https://europe-west1-dunnkers-bookshelf.cloudfunctions.net/goodreads-api";
+  function sortBooks(books) {
+    return books.sort(function(a, b) {
+      if (a.read_at && b.read_at) {
+        return new Date(b.read_at) - new Date(a.read_at);
+      }
+      return 0;
+    });
+  }
+  function renderBook(bookObj) {
+    // Support both {book: {...}} and {...} structures
+    const book = bookObj.book || bookObj;
+    const image_url = book.image_url || book.small_image_url || "https://via.placeholder.com/120x180?text=No+Cover";
+    const title = book.title || "Untitled";
+    const link = book.link || "#";
+    let author = "";
+    if (book.authors && book.authors.author) {
+      if (Array.isArray(book.authors.author)) {
+        author = book.authors.author.map(a => a.name).filter(Boolean).join(", ");
+      } else {
+        author = book.authors.author.name || "";
+      }
+    }
+    return `
+      <div class="bookshelf-book">
+        <img src="${image_url}" alt="${title} Cover" />
+        <div class="title"><a href="${link}" target="_blank" rel="noopener" style="color: rgb(0, 0, 0); text-decoration: none;">${title}</a></div>
+        <div class="author">${author}</div>
+      </div>
+    `;
+  }
+  function renderShelf(books, containerId) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    el.innerHTML = books.map(renderBook).join("");
+  }
+  fetch(API_URL + "/?bust=false")
+    .then(function(response) { return response.json(); })
+    .then(function(shelf) {
+      const current = sortBooks(shelf.current.books);
+      const read = sortBooks(shelf.read.books);
+      renderShelf(current, "bookshelf-current");
+      renderShelf(read, "bookshelf-read");
+    })
+    .catch(function(err) {
+      document.getElementById("bookshelf-current").innerHTML = "<em>Failed to load books.</em>";
+      document.getElementById("bookshelf-read").innerHTML = "";
+    });
+})();
+</script>
+
+<div class="bookshelf-root kg-width-wide">
+  <section>
+    <h2 class="bookshelf-shelf-header">Currently reading</h2>
+    <div class="bookshelf-shelf" id="bookshelf-current"></div>
+    <h2 class="bookshelf-shelf-header">Read</h2>
+    <div class="bookshelf-shelf" id="bookshelf-read"></div>
+  </section>
+</div>

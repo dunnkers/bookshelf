@@ -2,28 +2,30 @@
 <div class="kg-width-wide">
     <h2 class="bookshelf-shelf-header">Currently reading</h2>
     <div class="bookshelf-shelf">
+    <ul>
     {{#each current}}
-        <p class="bookshelf-book">
+        <li class="bookshelf-book" id="book-{{@index}}-current">
             <figure>
                 <img src="{{image_url}}" alt="{{title}} Cover" />
                 <figcaption><a href="{{link}}" target="_blank" rel="noopener">{{title}}</a></figcaption>
                 <figcaption class="author">{{author}}</figcaption>
             </figure>
-        </p>
+        </li>
     {{/each}}
+    </ul>
     </div>
     <h2 class="bookshelf-shelf-header">Read</h2>
     <div class="bookshelf-shelf">
+    <ul>
     {{#each read}}
-        <div class="bookshelf-book">
+        <li class="bookshelf-book" id="book-{{@index}}-read">
             <figure>
-
                 <img src="{{image_url}}" alt="{{title}} Cover" />
-
                 <figcaption class="title"><a href="{{link}}" target="_blank" rel="noopener">{{title}}</a></figcaption>
                 <figcaption class="author">{{author}}</figcaption>
             </figure>
-        </div>
+        </li>
     {{/each}}
+    </ul>
     </div>
 </div>

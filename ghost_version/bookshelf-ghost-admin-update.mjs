@@ -10,12 +10,12 @@ import handlebars from 'handlebars';
 const GHOST_ADMIN_API_KEY = process.env.GHOST_ADMIN_API_KEY;
 const GHOST_API_URL = process.env.GHOST_API_URL || 'http://localhost:2368';
 const BOOKS_API_URL = process.env.BOOKS_API_URL || 'https://europe-west1-dunnkers-bookshelf.cloudfunctions.net/goodreads-api';
-const PAGE_SLUG = 'bookieshelfy';
+const PAGE_SLUG = 'books';
 
 function sortBooks(books) {
     return books.sort((a, b) => {
         if (a.read_at && b.read_at) {
-            return new Date(b.read_at) - new Date(a.read_at);
+            return new Date(a.read_at) - new Date(b.read_at);
         }
         return 0;
     });
@@ -49,7 +49,9 @@ async function main() {
 
     // 3. Read CSS and prepare for codeinjection_head
     const cssContent = fs.readFileSync('ghost_version/bookshelf-bookshelf.css', 'utf8');
-    const codeinjection_head = `<style>\n${cssContent}\n</style>`;
+    const jsContent = fs.readFileSync('ghost_version/bookshelf-shelfify.js', 'utf8');
+    const bookshelfScript = `\n<script>\n${jsContent}\n</script>\n`;
+    const codeinjection_head = `<style>\n${cssContent}\n</style>${bookshelfScript}`;
 
     // 4. Connect to Ghost Admin API
     const api = new GhostAdminAPI({

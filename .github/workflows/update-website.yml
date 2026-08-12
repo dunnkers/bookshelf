@@ -4,7 +4,9 @@ on:
   schedule:
     - cron: "0 12 * * *"
   workflow_dispatch:
-    
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -12,24 +14,50 @@ jobs:
 
     steps:
     - name: Checkout GitHub action
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Use Node.js 16
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: 16.x
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3'
+        bundler-cache: true
 
     - name: Install dependencies
       shell: bash
       run: |
         yarn
 
+    - name: Fetch Goodreads shelves
+      shell: bash
+      run: |
+        bundle exec ruby scripts/fetch_shelves.rb
+      env:
+        GOODREADS_API_KEY: ${{ secrets.GOODREADS_API_KEY }}
+        GOODREADS_USER_ID: ${{ secrets.GOODREADS_USER_ID }}
+
+    - name: Commit updated cover cache
+      shell: bash
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        if ! git diff --quiet -- data/cover_cache.json; then
+          git add data/cover_cache.json
+          git commit -m "Update cached book cover images"
+          git push
+        else
+          echo "No cache changes to commit."
+        fi
+
     - name: Build Bookshelf website
       shell: bash
       run: |
         yarn build
       env:
-        API_URL: "https://europe-west1-dunnkers-bookshelf.cloudfunctions.net/goodreads-api"
         PUBLIC_URL: "https://dunnkers.com/bookshelf"
 
     - name: Deploy with gh-pages

@@ -14,17 +14,36 @@ ROOT_DIR = File.expand_path('..', __dir__)
 CACHE_FILE = File.join(ROOT_DIR, 'data', 'cover_cache.json')
 SHELVES_FILE = File.join(ROOT_DIR, 'data', 'shelves.json')
 
+COVER_FETCH_RETRIES = 3
+COVER_FETCH_RETRY_DELAY = 2 # seconds, doubled on each retry
+
 $client = Goodreads::Client.new(api_key: GOODREADS_API_KEY)
 $cover_cache = File.exist?(CACHE_FILE) ? JSON.parse(File.read(CACHE_FILE)) : {}
 
 # Book cover images aren't available through the Goodreads API, so they are
 # scraped from the book's page instead. Results are cached (and the cache is
 # committed back to the repo) so we don't re-scrape a book we've already seen.
+# Goodreads occasionally returns transient errors (e.g. 503) for a single
+# book page; retry a few times, and give up on just that cover rather than
+# failing the whole run, so one flaky page doesn't block the daily deploy.
 def grab_book_cover(book_link)
-  doc = Nokogiri::HTML(URI.open(book_link))
-  image_selector = '.BookCard__cover > .BookCover > .BookCover__image > div > img'
-  image = doc.css(image_selector)
-  image[0] if image && image.length > 0
+  attempt = 0
+  begin
+    attempt += 1
+    doc = Nokogiri::HTML(URI.open(book_link))
+    image_selector = '.BookCard__cover > .BookCover > .BookCover__image > div > img'
+    image = doc.css(image_selector)
+    image[0] if image && image.length > 0
+  rescue OpenURI::HTTPError, Net::OpenTimeout, Net::ReadTimeout, SocketError => e
+    if attempt <= COVER_FETCH_RETRIES
+      delay = COVER_FETCH_RETRY_DELAY * (2**(attempt - 1))
+      puts "Warning: #{e.message} fetching #{book_link} (attempt #{attempt}/#{COVER_FETCH_RETRIES}), retrying in #{delay}s..."
+      sleep delay
+      retry
+    end
+    puts "Warning: giving up on cover for #{book_link} after #{COVER_FETCH_RETRIES} attempts: #{e.message}"
+    nil
+  end
 end
 
 def fix_book_cover(book)
